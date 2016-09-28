@@ -11,7 +11,7 @@ public class RequestUtils {
 	 * @param param		参数
 	 * @param listener	监听调用结果
 	 */
-	public void SendToWebService(String url,String method,String[] param,SendMessageListener listener){
+	public void SendToWebService(String url,String method,Object[] param,SendMessageListener listener){
 		JaxWsDynamicClientFactory factory  = JaxWsDynamicClientFactory.newInstance();
 		Client client = (Client) factory.createClient(url);
 		Object[] result;
@@ -19,7 +19,20 @@ public class RequestUtils {
 			result = client.invoke(method, param);
 			listener.success(result);
 		} catch (Exception e) {
-			listener.failed(e);
+			e.printStackTrace();
 		}
 	}
+	/**
+	 * 返回接口
+	 * @author Jarvis
+	 *
+	 */
+	public interface SendMessageListener {
+		/**
+		 * 调用webservice成功接口，返回一个object数组
+		 * @param result
+		 */
+		public void success(Object[] result);
+	}
+
 }

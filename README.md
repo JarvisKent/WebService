@@ -1,11 +1,11 @@
-# WebService
+# WebService基础框架
 
 
 这是一个基于CXF+Spring+Maven+log4j搭建的WebService基础框架，可以在此基础上轻易的开发WebService。
 
-## WebService接口编写
+## WebService添加接口
 
-在com.jarvis.webservice.service中的Service中添加WebService接口，然后再ServiceImpl实现。
+在com.jarvis.webservice.service中的Service中添加WebService接口，然后再到ServiceImpl实现方法即可。
 
 ## 调用其他WebService的方法
 
@@ -16,9 +16,7 @@ request.SendToWebService(url,method, param, new SendMessageListener() {
 	public void success(Object[] result) {
 		//调用成功获取到的数据
 	}
-	public void failed(Exception e) {
-		//调用失败
-});
+	});
 ```
 
 发布方法，与普通web项目一致。
